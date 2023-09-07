@@ -213,7 +213,7 @@
 			// adds toggle button to li items that have children
 			nav.find('li a').each(function() {
 				if ($(this).next().length > 0) {
-					$(this).parent('li').addClass('has-sub').append('<a class="dd-toggle" href="#"><span class="icon-plus"></span></a>');
+					// $(this).parent('li').addClass('has-sub').append('<a class="dd-toggle" href="#"><span class="icon-plus"></span></a>');
 				}
 			});
 
@@ -223,6 +223,8 @@
 				$(this).parent('li').children('ul').stop(true, true).slideToggle(settings.openingSpeed);
 				$(this).parent('li').toggleClass('open');
 			});
+		
+			
 
 			var resetTriggers = function() {
 				nav.find('li').off('mouseenter');
@@ -244,20 +246,20 @@
 						});
 					} else {
 						// normal dropdown
-						// first-level
-						$(this).on('mouseenter', function(){
+				// 		// first-level
+						$(this).on(function(){
 							$(this).children('ul').stop(true, true).slideDown(settings.openingSpeed);
 						});
-						$(this).on('mouseleave', function(){
+						$(this).on(function(){
 							$(this).children('ul').stop(true, true).delay(settings.closingDelay).slideUp(settings.openingSpeed);
 						});
 
 						// second level and below
-						$(this).find('li.has-sub').on('mouseenter', function(){
+						$(this).find('li.has-sub').on(function(){
 							$(this).children('ul').stop(true, true).slideDown(settings.openingSpeed);
 						});
-						$(this).find('li.has-sub').on('mouseleave', function(){
-							$(this).children('ul').stop(true, true).delay(settings.closingDelay).slideUp(settings.openingSpeed);
+						$(this).find('li.has-sub').on(function(){
+							$(this).children ('ul').stop(true, true).delay(settings.closingDelay).slideUp(settings.openingSpeed);
 						});
 					}
 				});
@@ -357,4 +359,4 @@
 			});
 		});
 	}
-}(jQuery));
+}(jQuery))
